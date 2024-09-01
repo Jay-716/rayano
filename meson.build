@@ -41,14 +41,24 @@ else
   raylib = dependency('libraylib')
 endif
 
-srcs = ['main.c']
+main_srcs = ['main.c']
 
 executable(
-    'rayano',
-    srcs,
-    dependencies: [
-      raylib
-    ],
-    install: true,
+  'rayano',
+  main_srcs,
+  dependencies: [
+    raylib
+  ],
+  install: true,
+)
+
+plug_srcs = ['plug.c']
+
+library(
+  'plug',
+  plug_srcs,
+  dependencies: [
+    raylib
+  ],
 )
 
